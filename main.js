@@ -1,5 +1,6 @@
-import {Product} from './product.js';
-import {displayAllProductsView} from './views/allProductsView.js';
+import Product from './constructors/Product.js';
+import Cart from './constructors/Cart.js';
+import { displayAllProductsView } from "./views/allProductsView.js"; 
 
 const products = [
     new Product(1, 'Laptop', 999.99, 'Tech'),
@@ -8,8 +9,9 @@ const products = [
     new Product(4, 'Smartwatch', 299.99, 'Wearables')
 ];
 
-const initApp = () => {
-    displayAllProductsView(products);
-};
+const cart = new Cart();
+const favorites = [];
+
+const initApp = async () => { displayAllProductsView(products); }; 
 
 document.addEventListener('DOMContentLoaded', initApp);

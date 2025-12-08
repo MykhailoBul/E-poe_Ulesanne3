@@ -14,4 +14,5 @@ class Product {
         return price - (price * discount / 100);
     }
 }
+
 export default Product;

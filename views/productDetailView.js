@@ -1,6 +1,6 @@
 export const displayProductDetailView = (product) => {
     const container = document.getElementById('detailed-view');
-    container.innerHTML = '';  // Очищаем предыдущий контент
+    container.innerHTML = ''; 
 
     const productDetail = document.createElement('div');
     productDetail.classList.add('product-detail');
