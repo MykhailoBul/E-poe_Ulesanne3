@@ -24,9 +24,17 @@ button{
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    margin-left: 10px;
 }
 button:hover{
     background-color: #0056b3;
+}
+button.favourite-active {
+    background-color: #ff7683; 
+}
+
+button.favourite-active:hover {
+    background-color: #f9606f;
 }
 .product{
     display: inline-block;

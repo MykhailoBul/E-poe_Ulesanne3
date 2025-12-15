@@ -17,9 +17,17 @@ const products = [
 
 const initApp = async () => { 
     displayAllProductsView(products);
+    document.getElementById('cart-btn').onclick = () => {
+        displayCartView(cartConstructor);
+    };
+    document.getElementById('favourites').onclick = () => {
+        displayFavoritesView();
+    };
+    document.getElementById('cart-count').textContent = cartConstructor.totalItems;
     // displayProductDetailView(products[0]);  
     // displayCartView(cartConstructor);
     // displayFavoritesView();
+    
 }; 
 
 document.addEventListener('DOMContentLoaded', initApp);

@@ -12,12 +12,18 @@ class Cart {
         } else {
             this.items.push({ product, quantity });
         }
-        this.displayTotalItems();
+        this.updateCartCounter();
     }
     updateProductQuantity(productId, quantity) {
         const item = this.items.find(item => item.product.id === productId);
         if (item) {
             item.quantity = quantity;
+        }
+    }
+    updateCartCounter() {
+        const counter = document.getElementById('cart-count');
+        if (counter) {
+            counter.textContent = this.totalItems;
         }
     }
     removeProduct(productId) {
@@ -37,4 +43,4 @@ class Cart {
 }
 
 export default Cart;
-export const cartConstructor = Cart;
+export const cartConstructor = new Cart();
