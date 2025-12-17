@@ -26,19 +26,15 @@ class Customer {
             order.printOrder();
         });
     }
-    toggleFavorites(product) {
-        const existingItem = this.favorites.find(
-            item => item.id === product.id
-        );
-    
-        if (existingItem) {
-            this.favorites = this.favorites.filter(
-                item => item.id !== product.id
-            );
+        toggleFavorites(product) {
+        const index = this.favorites.findIndex(p => p.id === product.id);
+        if (index !== -1) {
+            this.favorites.splice(index, 1);
         } else {
             this.favorites.push(product);
         }
     }
+
     getAllFavorites() {
         return this.favorites;
     }
@@ -46,3 +42,4 @@ class Customer {
 
 export default Customer;
 export const customerConstructor = new Customer("Mike");
+

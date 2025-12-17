@@ -1,9 +1,6 @@
 import Product from './constructors/Product.js';
 import { displayAllProductsView } from "./views/allProductsView.js"; 
-import { displayProductDetailView } from './views/productDetailView.js';
-import { displayCartView } from './views/cartView.js';
-import { cartConstructor } from './constructors/Cart.js';
-import { displayFavoritesView } from './views/favoritesView.js';
+import { navigate } from './router.js';
 
 const products = [
     new Product(1, 'Laptop', 999.99, 'Tech', 'images/laptop.avif'),
@@ -12,22 +9,19 @@ const products = [
     new Product(4, 'Smartwatch', 299.99, 'Wearables', 'images/smartwatch.avif'),
 ];
 
-// cartConstructor.addProduct(products[0], 2);
-// cartConstructor.addProduct(products[2], 1);
 
-const initApp = async () => { 
+const initApp = () => {
+    const homeButton = document.getElementById('home-button');
+    homeButton.style.cursor = 'pointer';
+    homeButton.onclick = () => initApp();
+
+    const favoritesButton = document.getElementById('favourites');
+    favoritesButton.onclick = () => navigate('favorites');
+
+    const cartButton = document.getElementById('cart-btn');
+    cartButton.onclick = () => navigate('cart');
+
     displayAllProductsView(products);
-    document.getElementById('cart-btn').onclick = () => {
-        displayCartView(cartConstructor);
-    };
-    document.getElementById('favourites').onclick = () => {
-        displayFavoritesView();
-    };
-    document.getElementById('cart-count').textContent = cartConstructor.totalItems;
-    // displayProductDetailView(products[0]);  
-    // displayCartView(cartConstructor);
-    // displayFavoritesView();
-    
-}; 
+};
 
 document.addEventListener('DOMContentLoaded', initApp);
