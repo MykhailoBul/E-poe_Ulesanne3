@@ -1,11 +1,19 @@
-import { displayAllProductsView } from './views/allProductsView';
-import { displayCartView } from './views/cartView.js';
-import { displayFavoritesView } from './views/favoritesView.js';
-import { displayProductDetailView } from './views/productDetailView.js';
+import { displayFavoritesView } from "./views/favoritesView.js";
+import { dispalyProductDetailView } from "./views/productDetailView.js";
+import { displayCartView } from "./views/cartView.js";
+import { displayAllProductsView } from "./views/allProductsView.js";
 
-export const initRouter = (products, cart, favorites) => {
-    displayAllProductsView(products);
-    displayCartView(cart);
-    displayFavoritesView(favorites);
-    displayProductDetailView(products[0]); 
+export const navigate = (view, param) => {
+  const views = {
+    allProducts: () => displayAllProductsView(param || "all"), // Kasuta vaikeväärtust "all" kategooriana
+    productDetail: () => dispalyProductDetailView(param), // üks toode
+    cart: () => displayCartView(), // Näita ostukorvi vaadet
+    favorites: () => displayFavoritesView(),
+  };
+
+  //Vali ja käivita sobiv vaade
+  if (views[view]) {
+    views[view](); 
+
+     }
 };
