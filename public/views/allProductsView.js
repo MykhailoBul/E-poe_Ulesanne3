@@ -1,6 +1,6 @@
 import { navigate } from "../router.js";
-import { cartConstructor } from "../constructors/Cart.js";
-import { customerConstructor } from "../constructors/Customer.js";
+import { cartConstructor } from "../public/constructors/Cart.js";
+import { customerConstructor } from "../public/constructors/Customer.js";
 
 const updateCartCount = () => {
     document.getElementById("cart-count").textContent =

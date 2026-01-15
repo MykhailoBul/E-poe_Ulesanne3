@@ -1,4 +1,4 @@
-import { cartConstructor } from "../constructors/Cart.js";
+import { cartConstructor } from "../public/constructors/Cart.js";
 
 const VAT = 0.22;
 
